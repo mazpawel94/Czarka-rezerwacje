@@ -2,6 +2,9 @@
   "name": "nodeproject",
   "version": "1.0.0",
   "description": "",
+  "scripts": {
+    "start": "node server.js"
+},
   "main": "app-express.js",
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -17,10 +20,6 @@
     "pug": "^2.0.3"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
   "author": "",
   "license": "ISC",
 
