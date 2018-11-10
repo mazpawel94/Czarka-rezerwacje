@@ -1,0 +1,78 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Rezerwacje
+    link(href='https://fonts.googleapis.com/css?family=Lato&subset=latin-ext', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Mali&subset=latin-ext', rel='stylesheet')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.3.1/css/all.css', integrity='sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU', crossorigin='anonymous')
+    link(href='Datedropper3-master/datedropper.min.css', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='css/reservation.css')
+    link(rel='stylesheet', type='text/css', href='timedropper-master/timedropper.min.css')
+  body
+    header
+      .dateWrapper
+        i.far.fa-calendar-alt
+        input#date(type='text', data-large-mode='true', data-fx='true', data-min-year='2018', data-max-year='2019', data-lang='pl', data-lock='from')
+        i.far.fa-clock
+        input#time(type='text')
+    .change
+      button.addReservation +
+      button.removeReservation -
+      button.changeeReservation ~
+    form#addForm(method='POST' action='/applications')
+      input(type='hidden', id='day', name='day', value='')
+      input(type='hidden', id = 'hour', name='hour', value='')
+      label(for='name') Nazwisko
+      input#name(type='text', name='name', autofocus='true')
+      br
+      label.description Liczba osob
+      input(type='number', name='numberPeople', value='2')
+      br
+      label.description Stolik 
+      select#element_4.element.select.medium(name='table')
+        option(value='japanese') Japoński
+        option(value='smallIndian') Mały indyjski
+        option(value='bigIndian') Duży indyjski
+        option(value='rightChinese') Prawy chiński
+        option(value='base') Baza
+        option(value='rightRattan') Prawy rattan
+        option(value='leftChinese') Lewy chiński
+        option(value='board') Tablica
+        option(value='leftRattan') Lewy rattan
+        option(value='any') Jakikolwiek
+      br
+      button.save(type='submit') Zapisz
+    .room
+      .table.japanese(data-description='stolik dla 2-4 osób z siedzeniami na podłodze')
+        .name Japoński
+      .table.smallIndian(data-description='stolik dla 2-3 osób z siedzeniami na podłodze')
+        .name Mały indyjski
+      .table.bigIndian(data-description='stolik dla 3-8 osób z siedzeniami na podłodze')
+        .name Duży indyjski
+      .table.rightChinese(data-description='stolik dla 2-5 osób')
+        .name Prawy chiński
+      .table.base(data-description='stolik dla 1-2 osób')
+        .name Szachowy
+      .table.rightRattan(data-description='stolik dla 2-3 osób')
+        .name Prawy rattan
+      .table.leftChinese(data-description='stolik dla 2-6 osób')
+        .name Lewy chiński
+      .table.board(data-description='stolik dla 2-5 osób')
+        .name Frontalny
+      .table.leftRattan(data-description='stolik dla 2-4 osób')
+        .name Lewy rattan
+    .confirmClose X
+    if(formMessage.length)
+      .confirm #{formMessage}
+      
+    .dateFromBase #{dateFromBase}
+
+    script(src='https://code.jquery.com/jquery-3.3.1.js', integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=', crossorigin='anonymous')
+    // <script src="Datedropper3-master/datedropper.js"></script>
+    script(src='Datedropper3-master/datedropper.min.js')
+    script(src='timedropper-master/timedropper.js')
+    script(src='js/reservation.js')
+    script(src='js/save.js')
