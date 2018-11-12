@@ -424,7 +424,7 @@ form.active button {
     }
 
     .table.busySoon::after {
-        font-size: 6px;
+        font-size: 5.5px;
         font-weight: lighter;
         width: 40px;
         height: 20px;
@@ -450,12 +450,10 @@ form.active button {
        height: 32px;
        line-height: 8px;
        top: -42px;
-       
-        /* line-height: calc(40px / 3); */
     }
 
     .table.busy::after {
-        font-size: 6px;
+        font-size: 5.5px;
         font-weight: lighter;
         width: 40px;
         height: 20px;
@@ -472,6 +470,6 @@ form.active button {
 
 
     }
-    
+
 
 }
