@@ -14,7 +14,7 @@ exports.refresh = () => {
 
 }
 
-
+exports.getHour = () => {
     freeTable.find({}, {_id: 0, japanese: 0,
     smallIndian:0,
     bigIndian: 0,
@@ -30,6 +30,7 @@ exports.refresh = () => {
              exports.time = records;
         }
     });
+}
 
 
 exports.save = (req, res) => {

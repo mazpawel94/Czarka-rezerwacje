@@ -2,7 +2,7 @@
 const date = require('../controllers/applicationsController');
 // const records = date.records;
 date.refresh();
-
+date.getHour();
 exports.index = (req, res) => {
     date.refresh();
     res.render('reservation', {
@@ -19,6 +19,7 @@ exports.changes = (req, res) => {
 };
 
 exports.live = (req, res) => {
+    date.getHour();
     res.render('live', {
         lastUpdate: date.time.toString().replace('{', '').replace('}', '').replace('time:', '').replace("'", '').replace("'", '')
     });

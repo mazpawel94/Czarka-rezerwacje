@@ -74,8 +74,8 @@ html(lang='pl')
       input(type='hidden', id='leftChinese', name='leftChinese', value='')
       input(type='hidden', id='board', name='board', value='')
       input(type='hidden', id='leftRattan', name='leftRattan', value='')
-      button.save(type='submit') Aktualizuj stan sali
-    .confirmClose X
+      button.save(type='submit', id = 'saveFreeTables') Aktualizuj stan sali
+    
     if(formMessage.length)
       .confirm #{formMessage}
       

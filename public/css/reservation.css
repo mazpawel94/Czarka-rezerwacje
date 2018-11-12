@@ -101,7 +101,7 @@ i{
     border: 3px solid black;
     width: 700px;
     height: 700px;
-    margin-bottom: 300px;
+    /* margin-bottom: 300px; */
     /* display: flex;
     flex-wrap: wrap;
     justify-content: space-around; */
@@ -429,6 +429,21 @@ form.active button {
     display: none;
 }
 
+#saveFreeTables {
+    margin: 15px;
+    margin-bottom: 130px;
+    
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: rgb(23, 102, 27);
+    color: antiquewhite;
+    cursor: pointer;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
 @media (max-width: 640px) {
 
     .room {
