@@ -6,8 +6,8 @@
     --color: #171f1e;
 }
 body {
-    background-color: rgb(100, 83, 8);
-    /* background-image: url('../tlo.jpg'); */
+    /* background-color: rgb(100, 83, 8); */
+    background-image: url('../tlo.jpg');
         background-size: cover;
     color: #555;
     display: flex;

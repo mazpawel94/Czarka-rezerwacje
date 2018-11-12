@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 //  const mongodb = require('mongodb');
 //  const MongoClient = mongodb.MongoClient;
-
-mongoose.connect('mongodb://testuser:testuser1@ds157843.mlab.com:57843/heroku_3sg9gr36', function(){
+const url = process.env.MONGODB_URI || 'mongodb://localhost/reservation';
+mongoose.connect(url, function(){
 // mongoose.connect('mongodb://localhost/reservation', function(){
     console.log('połączenie nawiązane');
 })
