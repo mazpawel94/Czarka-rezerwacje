@@ -100,7 +100,7 @@ function showReservation() {
             {
                 const reserve = element.table;
                 $(`.${reserve}`).addClass('busySoon')
-                .attr('data-busy', ` Najbliższa rezerwacja \ ${element.hour}`);
+                .attr('data-busy-soon', ` Najbliższa rezerwacja \ ${element.hour}`);
             }
         })
 }

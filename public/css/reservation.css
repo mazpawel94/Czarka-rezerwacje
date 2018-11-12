@@ -196,7 +196,7 @@ i{
 }
 
 .table.busySoon::after {
-    content: attr(data-busy);
+    content: attr(data-busy-soon);
     font-family: 'Mali', cursive;
     font-size: .6rem;
     text-align: center;
@@ -398,6 +398,7 @@ form.active button {
 }
 
 @media (max-width: 640px) {
+
     .room {
         width: 300px;
         height: 300px;
@@ -412,6 +413,7 @@ form.active button {
     }
 
     header>h1 {
+        margin-top: 20px;
         width: 100%;
         font-size: 15px;
     }
@@ -421,5 +423,53 @@ form.active button {
         left: 5px;
     }
 
+    .table.busySoon::after {
+        font-size: 6px;
+       width: 40px;
+        height: 20px;
+        line-height: 6px;
+    }
+
+    .table:hover::after {
+        font-size: 10px;
+        top: -30px;
+        height: 20px;
+        line-height: 10px;
+        width: 70px;
+        
+    }
+    
+    .table:hover::before {
+        top: -10px;
+        left: 50%;
+    }
+    
+    .table.japanese:hover::after, .table.bigIndian:hover::after, .table.smallIndian:hover::after {
+        font-size: 8px;
+       height: 32px;
+       line-height: 8px;
+       top: -42px;
+       
+        /* line-height: calc(40px / 3); */
+    }
+
+    .table.busy::after {
+        font-size: 6px;
+       width: 40px;
+        height: 20px;
+        line-height: 10px;
+    }
+
+    
+    .table.busy:hover::after {
+        width: 80px;
+        height: 40px;
+        font-size: 10px;
+        line-height: 20px;
+        transform: translateX(-50%) rotate(0);
+
+
+    }
+    
 
 }
