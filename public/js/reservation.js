@@ -10,25 +10,53 @@ const dateFromBase = document.querySelector('.dateFromBase');
 const minutesToAround = document.querySelectorAll('.td-time>span')[1];
 const rotateClock = document.querySelector('.td-n');
 //zamiana na stringa możliwego do zamiany na JSON
-let reservation = dateFromBase.innerHTML.toString().replace(/\\n/g, "\\n")  
-.replace(/\\'/g, "\\'")
-.replace(/\\"/g, '\\"')
-.replace(/\\&/g, "\\&")
-.replace(/\\r/g, "\\r")
-.replace(/\\t/g, "\\t")
-.replace(/\\b/g, "\\b")
-.replace(/\\f/g, "\\f")
-.replace(/'/g, '"')
-.replace(/[\u0000-\u0019]+/g,"").split('},');
 
-reservation.forEach((element, index) => {
-    let newElement = element.replace('date', '"date"').replace('hour', '"hour"').replace('table', '"table"').replace('amount', '"amount"');
+function convertToJSON(html) {
+    let json = html.replace(/\\n/g, "\\n")  
+    .replace(/\\'/g, "\\'")
+    .replace(/\\"/g, '\\"')
+    .replace(/\\&/g, "\\&")
+    .replace(/\\r/g, "\\r")
+    .replace(/\\t/g, "\\t")
+    .replace(/\\b/g, "\\b")
+    .replace(/\\f/g, "\\f")
+    .replace(/'/g, '"')
+    .replace(/[\u0000-\u0019]+/g,"").split('},');
+    console.log(json);
+    json.forEach((element, index) => {
+        let newElement = element.replace('date', '"date"').replace('hour', '"hour"').replace('table', '"table"').replace('amount', '"amount"');
+        // let newElement = element.replace("'", '"');
+        if(index<json.length-1)
+            newElement= newElement.concat('}');
+            json[index] = JSON.parse(newElement);
+    });
 
-    if(index<reservation.length-1)
-        newElement= newElement.concat('}');
-    reservation[index] = JSON.parse(newElement);
+    return json;
 
-});
+
+}
+
+// let reservation = dateFromBase.innerHTML.toString().replace(/\\n/g, "\\n")  
+// .replace(/\\'/g, "\\'")
+// .replace(/\\"/g, '\\"')
+// .replace(/\\&/g, "\\&")
+// .replace(/\\r/g, "\\r")
+// .replace(/\\t/g, "\\t")
+// .replace(/\\b/g, "\\b")
+// .replace(/\\f/g, "\\f")
+// .replace(/'/g, '"')
+// .replace(/[\u0000-\u0019]+/g,"").split('},');
+
+// reservation.forEach((element, index) => {
+//     let newElement = element.replace('date', '"date"').replace('hour', '"hour"').replace('table', '"table"').replace('amount', '"amount"');
+
+//     if(index<reservation.length-1)
+//         newElement= newElement.concat('}');
+//     reservation[index] = JSON.parse(newElement);
+
+// });
+
+let reservation = convertToJSON(dateFromBase.innerHTML.toString());
 
 function compareHours(pickedHour, elementHour) {
     let pickedMinutes = Number(pickedHour.slice(0,2))*60 + Number(pickedHour.slice(3,5));

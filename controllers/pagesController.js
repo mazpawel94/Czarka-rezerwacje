@@ -17,3 +17,9 @@ exports.changes = (req, res) => {
         dateFromBase: date.records
     });
 };
+
+exports.live = (req, res) => {
+    res.render('live', {
+        lastUpdate: date.time.toString().replace('{', '').replace('}', '').replace('time:', '').replace("'", '').replace("'", '')
+    });
+}

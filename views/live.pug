@@ -1,0 +1,38 @@
+doctype html
+html(lang='pl')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Czarka Live
+    link(href='https://fonts.googleapis.com/css?family=Lato&subset=latin-ext', rel='stylesheet')
+    link(rel='stylesheet', href='css/reservation.css')
+    body
+    header
+      h1
+        | Ostatnia aktualizacja: #{lastUpdate}
+    .room
+      .table.japanese(data-description='stolik dla 2-4 osób z siedzeniami na podłodze')
+        .name Japoński
+      .table.smallIndian(data-description='stolik dla 2-3 osób z siedzeniami na podłodze')
+        .name Mały indyjski
+      .table.bigIndian(data-description='stolik dla 3-6 osób z siedzeniami na podłodze')
+        .name Duży indyjski
+      .table.rightChinese(data-description='stolik dla 2-5 osób')
+        .name Prawy chiński
+      .table.base(data-description='stolik dla 1-2 osób')
+        .name Szachowy
+      .table.rightRattan(data-description='stolik dla 2-3 osób')
+        .name Prawy rattan
+      .table.leftChinese(data-description='stolik dla 2-6 osób')
+        .name Lewy chiński
+      .table.board(data-description='stolik dla 2-5 osób')
+        .name Frontalny
+      .table.leftRattan(data-description='stolik dla 2-4 osób')
+        .name Lewy rattan
+    
+    .dateFromBase #{dateFromBase}
+
+      
+    script(src='https://code.jquery.com/jquery-3.3.1.js', integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=', crossorigin='anonymous')
+    //- script(src='js/reservation.js')

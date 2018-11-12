@@ -17,6 +17,22 @@ addReservation.addEventListener('click', function(){
     setDateInForm();
 });
 
+$('.table').on('click', function() {
+    console.log("kliknięte");
+    const name = this.classList[1];
+    if($(this).hasClass('busyNow')) {
+        $(`#${name}`)[0].value = true;
+        this.classList.remove('busyNow');
+     }
+    else{
+        console.log(this.classList[1]);
+        $(`#${name}`)[0].value = false;
+        console.log( $(`#${name}`));
+        this.classList.add('busyNow');
+     }
+
+});
+
 calendarPage.addEventListener('click', setDateInForm);
 clock.addEventListener('click', setDateInForm);
 

@@ -1,5 +1,5 @@
 doctype html
-html(lang='en')
+html(lang='pl')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
@@ -64,6 +64,17 @@ html(lang='en')
         .name Frontalny
       .table.leftRattan(data-description='stolik dla 2-4 osób')
         .name Lewy rattan
+    form#addForm(method='POST' action='/setTable')
+      input(type='hidden', id='japanese', name='japanese', value='')
+      input(type='hidden', id='smallIndian', name='smallIndian', value='')
+      input(type='hidden', id='bigIndian', name='bigIndian', value='')
+      input(type='hidden', id='rightChinese', name='rightChinese', value='')
+      input(type='hidden', id='base', name='base', value='')
+      input(type='hidden', id='rightRattan', name='rightRattan', value='')
+      input(type='hidden', id='leftChinese', name='leftChinese', value='')
+      input(type='hidden', id='board', name='board', value='')
+      input(type='hidden', id='leftRattan', name='leftRattan', value='')
+      button.save(type='submit') Aktualizuj stan sali
     .confirmClose X
     if(formMessage.length)
       .confirm #{formMessage}
