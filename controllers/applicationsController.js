@@ -32,6 +32,16 @@ exports.getHour = () => {
     });
 }
 
+exports.getTables = () => {
+    freeTable.find({},{_id: 0, __v: 0, time: 0}, function(err,records) {
+        if(err) console.log("coś się zepsuło");
+        else
+        {
+             exports.tablesNow = records;
+        }
+    });
+}
+
 
 exports.save = (req, res) => {
     req.flash('form', `Rezerwacja na nazwisko ${req.body.last_name} zostala zapisana`); 

@@ -17,8 +17,16 @@ addReservation.addEventListener('click', function(){
     setDateInForm();
 });
 
+tables.forEach( (e) => {
+    if (e.classList.contains('busyNow')) {
+        $(`#${e.classList[1]}`)[0].value = false;
+    }
+    else {
+        $(`#${e.classList[1]}`)[0].value = true;
+    }
+});
+
 $('.table').on('click', function() {
-    console.log("kliknięte");
     const name = this.classList[1];
     if($(this).hasClass('busyNow')) {
         $(`#${name}`)[0].value = true;

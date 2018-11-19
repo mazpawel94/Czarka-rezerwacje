@@ -9,6 +9,7 @@ const clock = document.querySelector('.td-clock');
 const dateFromBase = document.querySelector('.dateFromBase');
 const minutesToAround = document.querySelectorAll('.td-time>span')[1];
 const rotateClock = document.querySelector('.td-n');
+
 //zamiana na stringa możliwego do zamiany na JSON
 
 function convertToJSON(html) {
@@ -25,6 +26,7 @@ function convertToJSON(html) {
     console.log(json);
     json.forEach((element, index) => {
         let newElement = element.replace('date', '"date"').replace('hour', '"hour"').replace('table', '"table"').replace('amount', '"amount"');
+            // newElement = newElement.replace('japanese', '"japanese"').replace('smallIndian', '"smallIndian"').replace('bigIndian', '"bigIndian"').replace('rightChinese', '"rightChinese"').replace('base', '"base"').replace('rightRattan', '"rightRattan"').replace('leftChinese', '"leftChinese"').replace('board', '"board"').replace('leftRattan', '"leftRattan"').replace('time', '"time"');
         // let newElement = element.replace("'", '"');
         if(index<json.length-1)
             newElement= newElement.concat('}');
@@ -35,26 +37,6 @@ function convertToJSON(html) {
 
 
 }
-
-// let reservation = dateFromBase.innerHTML.toString().replace(/\\n/g, "\\n")  
-// .replace(/\\'/g, "\\'")
-// .replace(/\\"/g, '\\"')
-// .replace(/\\&/g, "\\&")
-// .replace(/\\r/g, "\\r")
-// .replace(/\\t/g, "\\t")
-// .replace(/\\b/g, "\\b")
-// .replace(/\\f/g, "\\f")
-// .replace(/'/g, '"')
-// .replace(/[\u0000-\u0019]+/g,"").split('},');
-
-// reservation.forEach((element, index) => {
-//     let newElement = element.replace('date', '"date"').replace('hour', '"hour"').replace('table', '"table"').replace('amount', '"amount"');
-
-//     if(index<reservation.length-1)
-//         newElement= newElement.concat('}');
-//     reservation[index] = JSON.parse(newElement);
-
-// });
 
 let reservation = convertToJSON(dateFromBase.innerHTML.toString());
 

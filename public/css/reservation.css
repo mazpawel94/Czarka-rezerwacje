@@ -410,8 +410,8 @@ form.active button {
 }
 
 .confirm {
-   position: relative;
-   top: -800px;
+   position: absolute;
+   top: 50vh;
     background-color: rgb(133, 144, 30);
     text-align: center;
     color: #9C0E15;
@@ -520,4 +520,8 @@ form.active button {
     }
 
 
+}
+
+.tablesNow {
+    display: none;
 }
