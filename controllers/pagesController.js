@@ -3,7 +3,12 @@ const date = require('../controllers/applicationsController');
 date.refresh();
 date.getHour();
 date.getTables();
+
 exports.index = (req, res) => {
+    res.render('index');
+}
+
+exports.reservation = (req, res) => {
     date.refresh();
     res.render('reservation', {
         dateFromBase: date.records
