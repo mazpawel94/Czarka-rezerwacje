@@ -10,35 +10,8 @@ const dateFromBase = document.querySelector('.dateFromBase');
 const minutesToAround = document.querySelectorAll('.td-time>span')[1];
 const rotateClock = document.querySelector('.td-n');
 
-//zamiana na stringa możliwego do zamiany na JSON
 
-function convertToJSON(html) {
-    let json = html.replace(/\\n/g, "\\n")  
-    .replace(/\\'/g, "\\'")
-    .replace(/\\"/g, '\\"')
-    .replace(/\\&/g, "\\&")
-    .replace(/\\r/g, "\\r")
-    .replace(/\\t/g, "\\t")
-    .replace(/\\b/g, "\\b")
-    .replace(/\\f/g, "\\f")
-    .replace(/'/g, '"')
-    .replace(/[\u0000-\u0019]+/g,"").split('},');
-    console.log(json);
-    json.forEach((element, index) => {
-        let newElement = element.replace('date', '"date"').replace('hour', '"hour"').replace('table', '"table"').replace('amount', '"amount"');
-            // newElement = newElement.replace('japanese', '"japanese"').replace('smallIndian', '"smallIndian"').replace('bigIndian', '"bigIndian"').replace('rightChinese', '"rightChinese"').replace('base', '"base"').replace('rightRattan', '"rightRattan"').replace('leftChinese', '"leftChinese"').replace('board', '"board"').replace('leftRattan', '"leftRattan"').replace('time', '"time"');
-        // let newElement = element.replace("'", '"');
-        if(index<json.length-1)
-            newElement= newElement.concat('}');
-            json[index] = JSON.parse(newElement);
-    });
-
-    return json;
-
-
-}
-
-let reservation = convertToJSON(dateFromBase.innerHTML.toString());
+const reservation = [];
 
 function compareHours(pickedHour, elementHour) {
     let pickedMinutes = Number(pickedHour.slice(0,2))*60 + Number(pickedHour.slice(3,5));
@@ -120,3 +93,17 @@ clock.addEventListener('click', showReservation);
 clock.addEventListener('click', aroundMinutes);
 clock.addEventListener('touchmove', showReservation);
 
+let xhr = new XMLHttpRequest();
+xhr.open(
+    "GET",
+    "https://czarka-api.herokuapp.com/reservations",
+    true
+  );
+xhr.addEventListener("load", function() {
+    const date = JSON.parse(this.responseText);
+    console.log(reservation);
+    [...date].forEach(e => reservation.push(e));
+    console.log(reservation);
+});
+
+xhr.send();
